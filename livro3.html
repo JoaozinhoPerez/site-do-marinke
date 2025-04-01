@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        header{
+            text-align: center;
+            background-color: white;
+            border-radius: 150px;
+            box-shadow: 0 0 25px rgb(28, 231, 214);
+        }
+        h2{
+            color: rgb(25, 180, 219);
+        }
+        p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+        Docker
+    </h1>
+    </header>
+    <h2>
+        O que é Docker?
+    </h2><br>
+    <p>
+        A palavra "Docker" tem várias definições: um projeto da comunidade open source; as ferramentas resultantes desse projeto; a empresa Docker Inc., principal apoiadora do projeto; e as ferramentas compatíveis formalmente com a empresa. O fato da empresa e das tecnologias terem o mesmo nome pode causar alguma confusão.
+
+        Veja uma breve explicação:
+        
+        O software de TI "Docker" é uma tecnologia de conteinerização para criação e uso de containers Linux®.
+        A comunidade open source do Docker trabalha gratuitamente para melhorar essas tecnologias para todos os usuários.
+        A empresa Docker Inc. se baseia no trabalho realizado pela comunidade do Docker, tornando-o mais seguro, e compartilha os avanços com a comunidade em geral. Depois, ela oferece aos clientes empresariais o suporte necessário para as tecnologias, que foram aprimoradas e fortalecidas.
+        Com o Docker, é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente lightweight. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro. Isso otimiza as apps na nuvem.
+    </p><br>
+    <h2>
+        Como o Docker funciona?
+    </h2><br>
+    <p>
+        A tecnologia Docker usa o kernel do Linux e funcionalidades do kernel, como cGroups e namespaces, para segregar processos. Assim, eles podem ser executados de maneira independente. O objetivo dos containers é criar independência: a habilidade de executar diversos processos e apps separadamente para utilizar melhor a infraestrutura e, ao mesmo tempo, manter a segurança que você teria em sistemas separados.
+
+        As ferramentas de container, incluindo o Docker, incluem um modelo de implantação com base em imagem. Isso facilita o compartilhamento de uma aplicação ou conjunto de serviços, incluindo todas as dependências deles em vários ambientes. O Docker também automatiza a implantação da aplicação (ou de conjuntos de processos que constituem uma app) dentro desse ambiente de containers.
+        
+        Essas ferramentas baseadas nos containers Linux fazem com que o Docker seja exclusivo e fácil de usar. Elas também oferecem aos usuários acesso sem precedentes a apps e total controle sobre as versões e distribuição, além da habilidade de implantar com rapidez.
+    </p><br>
+    <h2>
+        Containers Docker: quais suas vantagens?
+    </h2><br>
+    <p>
+        Modularidade
+        A abordagem do Docker para a conteinerização se concentra na habilidade de desativar um pedaço de uma aplicação, seja para reparo ou atualização, sem interrompê-la totalmente. Além dessa abordagem baseada em microsserviços, é possível compartilhar processos entre várias apps da mesma maneira como na arquitetura orientada a serviço (SOA).
+        
+        Camadas e controle de versão de imagens
+        Cada arquivo de imagem Docker é composto por uma série de camadas combinadas. Quando a imagem muda, uma camada é criada. Assim como sempre que alguém especificar um comando, como run ou copy.
+        
+        O Docker reutiliza essas camadas para criar novos containers, o que acelera o processo. Para otimizar a velocidade, o tamanho e a eficiência, ocorrem mudanças intermediárias nas imagens. Algo que também é inerente à criação de camadas no controle de versão: sempre que ocorre uma nova alteração, é gerado um changelog integrado, o que oferece controle total sobre as imagens do container.
+        
+        Reversão
+        Talvez a melhor parte da criação de camadas seja a reversão. Toda imagem tem camadas. Não gostou da iteração atual de uma imagem? Basta revertê-la para a versão anterior. Esse processo é compatível com uma abordagem de desenvolvimento ágil e possibilita as práticas de integração e implantação contínuas (CI/CD) em relação às ferramentas.
+        
+        Implantação rápida
+        Executar, provisionar e disponibilizar um novo hardware costumava levar dias, um processo muito cansativo. Com os containers Docker, a implantação leva alguns segundos. Crie um container para cada processo para agilizar o compartilhamento desses processos com novas apps. Não é necessário inicializar o sistema operacional para adicionar ou mover um container, o que reduz drasticamente o tempo de implantação. Além disso, é possível criar dados e destruir os criados pelos containers de forma fácil e econômica sem nenhuma preocupação.
+        
+        Resumindo, a tecnologia Docker é uma abordagem mais granular, controlável e baseada em microsserviços que valoriza a eficiência.
+    </p><br>
+    <h2>
+        Há limitações no uso do Docker?
+    </h2><br>
+    <p>
+        Por si só, o Docker consegue gerenciar containers únicos. Conforme você começa a usar cada vez mais containers e apps em containers, segregados em centenas de partes, pode ser difícil gerenciá-los e orquestrá-los. Eventualmente, será necessário parar um pouco e agrupar os containers para oferecer serviços como rede, segurança, telemetria etc. em todos eles. É aí que o Kubernetes entra em cena.
+
+        Orquestração de containers com o Kubernetes
+        
+        O Docker não inclui as mesmas funcionalidades parecidas com UNIX que os containers Linux tradicionais oferecem. Isso inclui a capacidade de usar processos como cron ou syslog dentro do container, junto à app. O Docker também tem algumas limitações em questões como a limpeza de processos netos após o encerramento dos processos filhos, algo que é processado naturalmente nos containers Linux tradicionais. Essas desvantagens podem ser mitigadas ao modificar o arquivo de configuração e configurar essas funcionalidades desde o início, o que não está óbvio em um primeiro momento.
+        
+        Além disso, existem outros dispositivos e subsistemas Linux que não estão em namespaces. Isso inclui dispositivos Selinux, cGroups e /dev/sd*. Em outras palavras, se um invasor adquirir controle sobre esses subsistemas, o host será comprometido. Para manter-se lightweight, o compartilhamento do kernel do host com os containers gera essa possível vulnerabilidade na segurança. Isso é diferente nas máquinas virtuais, as quais são mais firmemente segregadas a partir do sistema host.
+        
+        Containers Docker são realmente seguros?
+        
+        O daemon do Docker também pode representar uma vulnerabilidade à segurança. Para usar e executar os containers Docker, é provável que você use o daemon do Docker, um ambiente de execução persistente para containers. O daemon do Docker requer privilégios de raiz. Portanto, é necessário ter um cuidado maior ao escolher as pessoas que terão acesso a esse processo e o local onde ele residirá. Por exemplo, um daemon local tem menos chances de sofrer um ataque do que um daemon em um local mais público, como um servidor web.
+    </p><br>
+</body>
+</html>
